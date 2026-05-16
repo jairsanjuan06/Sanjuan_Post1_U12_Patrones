@@ -6,14 +6,6 @@ import com.empresa.pedidos.dominio.TipoPedido;
 import com.empresa.pedidos.dominio.puertos.ProcesadorPedido;
 import org.springframework.stereotype.Component;
 
-/**
- * Estrategia de procesamiento para pedidos de tipo EXPRESS.
- *
- * <p>Regla de negocio: costo = subtotal × 1.3 (30% de recargo por urgencia).</p>
- *
- * <p>Patrón: Strategy — algoritmo alternativo intercambiable sin modificar
- * ninguna otra clase del sistema.</p>
- */
 @Component
 public class ProcesadorPedidoExpress implements ProcesadorPedido {
 

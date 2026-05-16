@@ -6,14 +6,7 @@ import com.empresa.pedidos.dominio.TipoPedido;
 import com.empresa.pedidos.dominio.puertos.ProcesadorPedido;
 import org.springframework.stereotype.Component;
 
-/**
- * Estrategia de procesamiento para pedidos de tipo ESTÁNDAR.
- *
- * <p>Regla de negocio: costo = subtotal × 1.1 (10% de recargo).</p>
- *
- * <p>Patrón: Strategy — encapsula el algoritmo de cálculo estándar,
- * eliminando el bloque {@code if} del servicio legacy.</p>
- */
+
 @Component
 public class ProcesadorPedidoEstandar implements ProcesadorPedido {
 

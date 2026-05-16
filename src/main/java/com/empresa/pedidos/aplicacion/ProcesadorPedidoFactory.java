@@ -9,16 +9,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * Factory que selecciona dinámicamente la estrategia de procesamiento.
- *
- * <p>Spring inyecta automáticamente todas las implementaciones de
- * {@link ProcesadorPedido} registradas como {@code @Component}.
- * La Factory construye un mapa TipoPedido → estrategia en el constructor,
- * eliminando los condicionales del código cliente.</p>
- *
- * <p>Combinación de patrones: Factory + Strategy (sección 1.1 de la guía).</p>
- */
 @Component
 public class ProcesadorPedidoFactory {
 
@@ -33,8 +23,7 @@ public class ProcesadorPedidoFactory {
         this.procesadores = lista.stream()
                 .collect(Collectors.toMap(
                         ProcesadorPedido::getTipo,
-                        Function.identity()
-                ));
+                        Function.identity()));
     }
 
     /**
