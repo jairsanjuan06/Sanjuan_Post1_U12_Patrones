@@ -6,6 +6,9 @@ import com.empresa.pedidos.dominio.TipoPedido;
 import com.empresa.pedidos.dominio.puertos.ProcesadorPedido;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 @Component
 public class ProcesadorPedidoExpress implements ProcesadorPedido {
 
@@ -16,7 +19,10 @@ public class ProcesadorPedidoExpress implements ProcesadorPedido {
 
     @Override
     public void procesar(Pedido pedido) {
-        pedido.setCosto(pedido.getSubtotal() * 1.3);
+        BigDecimal subtotal = BigDecimal.valueOf(pedido.getSubtotal());
+        BigDecimal costo = subtotal.multiply(BigDecimal.valueOf(1.3))
+                .setScale(2, RoundingMode.HALF_UP);
+        pedido.setCosto(costo.doubleValue());
         pedido.setEstado(EstadoPedido.PROCESADO);
     }
 }

@@ -54,6 +54,7 @@ public class ReglasArquitecturaTest {
             .should().onlyAccessClassesThat()
             .resideInAnyPackage(
                     "..adaptadores.facade..",
+                    "..adaptadores.rest..",
                     "..dominio..",
                     "java..",
                     "org.springframework.."
